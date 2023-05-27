@@ -30,7 +30,6 @@ public class Employee {
         this.employeeEmail = employeeEmail;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -102,5 +101,9 @@ public class Employee {
 
     public void setEmployeeType(String employeeType) {
         this.employeeType = employeeType;
+    }
+
+    public Employee clone() {
+        return new Employee(this.employeeEmail);
     }
 }
