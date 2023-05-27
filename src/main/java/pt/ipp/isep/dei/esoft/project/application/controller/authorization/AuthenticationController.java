@@ -15,15 +15,12 @@ public class AuthenticationController {
     public static final String ROLE_ADMIN = "ADMINISTRATOR";
     public static final String ROLE_EMPLOYEE = "EMPLOYEE";
 
-    /**
-     * A employee has different roles , we did only use a class employee
-     */
+    // An employee has different roles , we did only use a class employee
 
     public static final String ROLE_AGENT = "Agent";
     public static final String ROLE_AGENCY_MANAGER = "Agency manager";
     public static final String ROLE_SYSTEM_ADMINISTRATOR = "System Administrator";
     public static final String ROLE_NETWORK_MANAGER = "Network administrator";
-
     public static final String ROLE_OWNER = "Owner";
     public static final String ROLE_CLIENT = "Client";
 

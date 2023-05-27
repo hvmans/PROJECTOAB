@@ -12,10 +12,10 @@ public class Client {
     private int clientId;
     private int ccNumber; // A 9 digit number
     private int taxNumber;
-    private final Email clientEmail;
+    private String clientEmail;
     private int phoneNumber;
 
-    public Client(String name, int ccNumber, int taxNumber, Email clientEmail, int phoneNumber) {
+    public Client(String name, int ccNumber, int taxNumber, String clientEmail, int phoneNumber) {
         this.name = name;
         this.ccNumber = ccNumber;
         this.taxNumber = taxNumber;
@@ -36,6 +36,10 @@ public class Client {
         return clientId;
     }
 
+    public void setClientEmail(String clientEmail) {
+        this.clientEmail = clientEmail;
+    }
+
     public int getCcNumber() {
         return ccNumber;
     }
@@ -44,9 +48,11 @@ public class Client {
         return taxNumber;
     }
 
-    public Email getClientEmail() {
+    public String getClientEmail() {
         return clientEmail;
     }
+
+
 
     public int getPhoneNumber() {
         return phoneNumber;

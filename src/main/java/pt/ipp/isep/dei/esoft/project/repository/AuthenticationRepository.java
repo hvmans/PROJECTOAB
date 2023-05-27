@@ -6,8 +6,6 @@ import pt.isep.lei.esoft.auth.UserSession;
 
 public class AuthenticationRepository {
 
-    private int numbeOfUsers = 0;
-
 
     private final AuthFacade authenticationFacade = new AuthFacade();
 

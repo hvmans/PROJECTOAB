@@ -1,27 +1,38 @@
 package pt.ipp.isep.dei.esoft.project.ui.console;
 
+import pt.ipp.isep.dei.esoft.project.application.controller.RegisterUserController;
+import pt.ipp.isep.dei.esoft.project.application.controller.authorization.AuthenticationController;
+import pt.isep.lei.esoft.auth.AuthFacade;
+import pt.isep.lei.esoft.auth.domain.model.User;
+import pt.isep.lei.esoft.auth.domain.store.UserStore;
+
+import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class RegisterUserUI implements Runnable {
+
+    RegisterUserController registerUserController = new RegisterUserController();
+
     @Override
     public void run() {
-        requestData();
+        String userName = inputName();
+        String userEmail = inputEmail();
+        String password = inputPassword();
+        registerUserController.RegisterUser(userName, userEmail, password);
     }
 
-    public void requestData() {
-        inputName();
-        inputCcNumber();
-    }
-
-    public void inputName() {
+    public String inputName() {
         String name;
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce your name: ");
         do {
             name = scanner.nextLine();
             if (!validateName(name)) {
                 System.out.println("That's not a valid name.");
             }
         } while (!validateName(name));
+        return name;
     }
 
     public boolean validateName(String name) {
@@ -34,27 +45,25 @@ public class RegisterUserUI implements Runnable {
         return true;
     }
 
-    public void inputCcNumber() {
-        int ccNumber;
+    public String inputEmail() {
+        String userEmail;
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Type your email address: ");
         do {
-            ccNumber = scanner.nextInt();
-        } while (!validateCcNumber(ccNumber));
+            userEmail = scanner.next();
+        } while (!isValidEmail(userEmail));
+        return userEmail;
     }
 
-    public static boolean validateCcNumber(int number) {
-        String numberString = String.valueOf(number);
-
-        if (numberString.length() != 9) {
-            return false;
-        }
-
-        try {
-            Integer.parseInt(numberString);
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        return true;
+    public static boolean isValidEmail(String email) {
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        return email.matches(emailRegex);
     }
+
+    public String inputPassword() {
+        return "pwd";
+    }
+
+
 
 }
