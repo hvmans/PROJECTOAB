@@ -3,6 +3,11 @@ package pt.ipp.isep.dei.esoft.project.domain;
 import java.util.Objects;
 
 public class Employee {
+
+    private final String EMPLOYEE_TYPE_AGENT = "Agent";
+    private final String EMPLOYEE_TYPE_AGENCY_MANAGER = "Agency manager";
+    private final String EMPLOYEE_TYPE_SYSTEM_ADMINISTRATOR = "System Administrator";
+    private final String EMPLOYEE_TYPE_NETWORK_ADMINISTRATOR = "Network administrator";
     private static int employeeIdcounter = 0;
     private int employeeId;
     private String employeeType;

@@ -3,6 +3,9 @@ package pt.ipp.isep.dei.esoft.project.domain;
 import pt.isep.lei.esoft.auth.domain.model.Email;
 
 public class Client {
+    /**
+     * remembering that a client is still a user ,as well as the unregisted user is still a client
+     */
 
     private static int clientIdCounter = 0;
     private String name;

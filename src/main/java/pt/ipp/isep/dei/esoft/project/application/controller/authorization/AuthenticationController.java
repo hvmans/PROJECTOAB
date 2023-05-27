@@ -11,8 +11,13 @@ import java.util.List;
  */
 public class AuthenticationController {
 
+
     public static final String ROLE_ADMIN = "ADMINISTRATOR";
     public static final String ROLE_EMPLOYEE = "EMPLOYEE";
+
+    /**
+     * A employee has different roles , we did only use a class employee
+     */
 
     private final String ROLE_AGENT = "Agent";
     private final String ROLE_AGENCY_MANAGER = "Agency manager";

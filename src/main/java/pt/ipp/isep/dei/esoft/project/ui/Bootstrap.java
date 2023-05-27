@@ -44,7 +44,7 @@ public class Bootstrap implements Runnable {
 
     private void addUsers() {
         //TODO: add Authentication users here: should be created for each user in the organization
-        /*AuthenticationRepository authenticationRepository = Repositories.getInstance().getAuthenticationRepository();
+        AuthenticationRepository authenticationRepository = Repositories.getInstance().getAuthenticationRepository();
         authenticationRepository.addUserRole(AuthenticationController.ROLE_ADMIN, AuthenticationController.ROLE_ADMIN);
         authenticationRepository.addUserRole(AuthenticationController.ROLE_EMPLOYEE,
                 AuthenticationController.ROLE_EMPLOYEE);
@@ -53,7 +53,7 @@ public class Bootstrap implements Runnable {
                 AuthenticationController.ROLE_ADMIN);
 
         authenticationRepository.addUserWithRole("Employee", "employee@this.app", "pwd",
-                AuthenticationController.ROLE_EMPLOYEE);*/
+                AuthenticationController.ROLE_EMPLOYEE);
     }
 
 
