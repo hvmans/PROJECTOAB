@@ -66,4 +66,5 @@ public class Owner {
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
 }
