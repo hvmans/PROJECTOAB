@@ -6,7 +6,7 @@ import pt.ipp.isep.dei.esoft.project.ui.console.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AgentUi implements Runnable {
+public class AgentUI implements Runnable {
     @Override
     public void run() {
         List<MenuItem> options = new ArrayList<MenuItem>();

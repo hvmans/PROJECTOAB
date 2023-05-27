@@ -10,6 +10,7 @@ public class RegisterUserUI implements Runnable {
 
     public void requestData() {
         inputName();
+        inputCcNumber();
     }
 
     public void inputName() {
@@ -33,8 +34,15 @@ public class RegisterUserUI implements Runnable {
         return true;
     }
 
+    public void inputCcNumber() {
+        int ccNumber;
+        Scanner scanner = new Scanner(System.in);
+        do {
+            ccNumber = scanner.nextInt();
+        } while (!validateCcNumber(ccNumber));
+    }
 
-    public static boolean validateNineDigitInt(int number) {
+    public static boolean validateCcNumber(int number) {
         String numberString = String.valueOf(number);
 
         if (numberString.length() != 9) {

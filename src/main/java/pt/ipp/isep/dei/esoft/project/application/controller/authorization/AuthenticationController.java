@@ -19,10 +19,13 @@ public class AuthenticationController {
      * A employee has different roles , we did only use a class employee
      */
 
-    private final String ROLE_AGENT = "Agent";
-    private final String ROLE_AGENCY_MANAGER = "Agency manager";
-    private final String ROLE_SYSTEM_ADMINISTRATOR = "System Administrator";
-    private final String ROLE_NETWORK_ADMINISTRATOR = "Network administrator";
+    public static final String ROLE_AGENT = "Agent";
+    public static final String ROLE_AGENCY_MANAGER = "Agency manager";
+    public static final String ROLE_SYSTEM_ADMINISTRATOR = "System Administrator";
+    public static final String ROLE_NETWORK_MANAGER = "Network administrator";
+
+    public static final String ROLE_OWNER = "Owner";
+    public static final String ROLE_CLIENT = "Client";
 
     //private final ApplicationSession applicationSession;
     private final AuthenticationRepository authenticationRepository;
