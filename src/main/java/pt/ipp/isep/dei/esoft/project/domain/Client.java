@@ -7,7 +7,7 @@ public class Client {
     private static int clientIdCounter = 0;
     private String name;
     private int clientId;
-    private int ccNumber;
+    private int ccNumber; // A 9 digit number
     private int taxNumber;
     private final Email clientEmail;
     private int phoneNumber;
