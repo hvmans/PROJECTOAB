@@ -5,6 +5,10 @@ import pt.isep.lei.esoft.auth.AuthFacade;
 import pt.isep.lei.esoft.auth.UserSession;
 
 public class AuthenticationRepository {
+
+    private int numbeOfUsers = 0;
+
+
     private final AuthFacade authenticationFacade = new AuthFacade();
 
     public boolean doLogin(String email, String pwd) {
