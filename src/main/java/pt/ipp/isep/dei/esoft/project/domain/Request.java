@@ -1,5 +1,7 @@
 package pt.ipp.isep.dei.esoft.project.domain;
 
+import java.util.Date;
+
 public class Request {
 
     private final String REQUEST_TYPE_SALE = "Sale";
@@ -8,13 +10,19 @@ public class Request {
     private int requestId;
     String requestType;
     Property requestedProperty;
-    Employee agent;
+    Employee requestAgent;
+    Date requestDate;
 
-    public Request(String requestType, Property requestedProperty, Employee agent) {
+    public Request(String requestType, Property requestedProperty, Employee requestAgent) {
         this.requestType = requestType;
         this.requestedProperty = requestedProperty;
-        this.agent = agent;
+        this.requestAgent = requestAgent;
         this.requestId = requestIdCounter++;
+        this.requestDate = new Date();
+    }
+
+    public Date getRequestDate() {
+        return requestDate;
     }
 
     public static int getRequestIdCounter() {
@@ -41,11 +49,11 @@ public class Request {
         this.requestedProperty = requestedProperty;
     }
 
-    public Employee getAgent() {
-        return agent;
+    public void setRequestAgent(Employee requestAgent) {
+        this.requestAgent = requestAgent;
     }
 
-    public void setAgent(Employee agent) {
-        this.agent = agent;
+    public String getRequestAgentEmail() {
+        return this.requestAgent.getEmployeeEmail();
     }
 }

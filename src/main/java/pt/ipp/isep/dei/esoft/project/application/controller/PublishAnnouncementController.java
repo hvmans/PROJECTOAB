@@ -1,4 +1,34 @@
 package pt.ipp.isep.dei.esoft.project.application.controller;
 
+import pt.ipp.isep.dei.esoft.project.domain.Employee;
+import pt.ipp.isep.dei.esoft.project.repository.AuthenticationRepository;
+import pt.ipp.isep.dei.esoft.project.repository.Repositories;
+import pt.ipp.isep.dei.esoft.project.repository.RequestRepository;
+import pt.isep.lei.esoft.auth.domain.model.Email;
+
 public class PublishAnnouncementController {
+
+    private AuthenticationRepository authenticationRepository = null;
+    private RequestRepository requestRepository = null;
+
+    private AuthenticationRepository getAuthenticationRepository() {
+        if (authenticationRepository == null) {
+            Repositories repositories = Repositories.getInstance();
+            authenticationRepository = repositories.getAuthenticationRepository();
+        }
+        return authenticationRepository;
+    }
+
+    private RequestRepository getRequestRepository() {
+        if (requestRepository == null) {
+            Repositories repositories = Repositories.getInstance();
+            requestRepository = repositories.getRequestRepository();
+        }
+        return requestRepository;
+    }
+
+    public String getAgentEmailFromSession() {
+        Email email = getAuthenticationRepository().getCurrentUserSession().getUserId();
+        return email.getEmail();
+    }
 }

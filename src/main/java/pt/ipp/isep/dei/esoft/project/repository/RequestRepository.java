@@ -26,4 +26,14 @@ public class RequestRepository {
     public void addRequest(Request requestToAdd) {
         requests.add(requestToAdd);
     }
+
+    public List<Request> getAgentRequests(String agentEmail) {
+        List<Request> agentRequests = new ArrayList<>();
+        for (Request request: requests) {
+            if (request.getRequestAgentEmail().equals(agentEmail)) {
+                agentRequests.add(request);
+            }
+        }
+        return agentRequests;
+    }
 }
