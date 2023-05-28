@@ -50,4 +50,7 @@ public class Announcement {
     public Date getAnnouncementDate() {
         return announcementDate;
     }
+
+    public double getAnnoucementPrice(){return requestForAnnouncement.getPrice();} //getting price from the request no
+
 }
