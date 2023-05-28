@@ -9,6 +9,10 @@ public class RequestRepository {
 
     private final List<Request> requests = new ArrayList<>();
 
+    public List<Request> getRequests() {
+        return requests;
+    }
+
     public Request getRequestById(int requestId) {
         Request requestToGet = null;
         for (Request request: requests) {

@@ -8,6 +8,10 @@ public class RegisterUserController {
 
     private AuthenticationRepository authenticationRepository = null;
 
+    public RegisterUserController() {
+        getAuthenticationRepository();
+    }
+
     private AuthenticationRepository getAuthenticationRepository() {
         if (authenticationRepository == null) {
             Repositories repositories = Repositories.getInstance();

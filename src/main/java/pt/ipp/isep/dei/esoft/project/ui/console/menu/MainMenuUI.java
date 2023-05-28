@@ -1,6 +1,7 @@
 package pt.ipp.isep.dei.esoft.project.ui.console.menu;
 
 import pt.ipp.isep.dei.esoft.project.ui.console.DevTeamUI;
+import pt.ipp.isep.dei.esoft.project.ui.console.DisplayListedPropertiesUI;
 import pt.ipp.isep.dei.esoft.project.ui.console.RegisterUserUI;
 import pt.ipp.isep.dei.esoft.project.ui.console.authorization.AuthenticationUI;
 import pt.ipp.isep.dei.esoft.project.ui.console.utils.Utils;
@@ -22,6 +23,7 @@ public class MainMenuUI implements Runnable {
         options.add(new MenuItem("Do Login", new AuthenticationUI()));
         options.add(new MenuItem("Know the Development Team", new DevTeamUI()));
         options.add(new MenuItem("Register new user", new RegisterUserUI()));
+        options.add(new MenuItem("Display listed properties", new DisplayListedPropertiesUI()));
         int option = 0;
         do {
             option = Utils.showAndSelectIndex(options, "\n\nMain Menu");

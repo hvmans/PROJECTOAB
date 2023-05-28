@@ -1,18 +1,21 @@
 package pt.ipp.isep.dei.esoft.project.domain;
 
-public class Property {
+public abstract class Property {
 
+    private String propertyType;
     private static int propertyIdCounter = 0;
     private int propertyId;
-    private String propertyType;
     private String location;
     private double area;
     private double distanceCenter;
     private String photos;
     private Owner owner;
 
-    public Property(String propertyType, String location, double area, double distanceCenter, String photos, Owner owner) {
-        this.propertyType = propertyType;
+    public Property() {
+
+    }
+
+    public Property(String location, double area, double distanceCenter, String photos, Owner owner) {
         this.location = location;
         this.area = area;
         this.distanceCenter = distanceCenter;
@@ -21,20 +24,16 @@ public class Property {
         this.propertyId = propertyIdCounter++;
     }
 
-    public Property() {
-
+    public static int getPropertyIdCounter() {
+        return propertyIdCounter;
     }
 
-    public Property clone() {
-        return new Property(this.propertyType, this.location, this.area, this.distanceCenter, this.photos, this.owner);
-    }
-    public String getPropertyType() {
-
-        return propertyType;
+    public int getPropertyId() {
+        return propertyId;
     }
 
-    public void setPropertyType(String propertyType) {
-        this.propertyType = propertyType;
+    public void setPropertyId(int propertyId) {
+        this.propertyId = propertyId;
     }
 
     public String getLocation() {
@@ -77,5 +76,13 @@ public class Property {
         this.owner = owner;
     }
 
+    public String getPropertyType() {
+        return propertyType;
+    }
 
+    public void setPropertyType(String propertyType) {
+        this.propertyType = propertyType;
+    }
+
+    public abstract void setPropertyType();
 }

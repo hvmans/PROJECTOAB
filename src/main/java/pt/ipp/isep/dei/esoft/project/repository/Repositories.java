@@ -5,7 +5,12 @@ public class Repositories {
     private static final Repositories instance = new Repositories();
     TaskCategoryRepository taskCategoryRepository = new TaskCategoryRepository();
     OrganizationRepository organizationRepository = new OrganizationRepository();
+
     AuthenticationRepository authenticationRepository = new AuthenticationRepository();
+    AnnouncementRepository announcementRepository = new AnnouncementRepository();
+    PropertiesRepository propertiesRepository = new PropertiesRepository();
+    RequestRepository requestRepository = new RequestRepository();
+
 
     private Repositories() {
     }
@@ -24,6 +29,18 @@ public class Repositories {
 
     public AuthenticationRepository getAuthenticationRepository() {
         return authenticationRepository;
+    }
+
+    public AnnouncementRepository getAnnouncementRepository() {
+        return announcementRepository;
+    }
+
+    public PropertiesRepository getPropertiesRepository() {
+        return propertiesRepository;
+    }
+
+    public RequestRepository getRequestRepository() {
+        return requestRepository;
     }
 
 

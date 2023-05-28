@@ -1,13 +1,10 @@
 package pt.ipp.isep.dei.esoft.project.ui;
 
 import pt.ipp.isep.dei.esoft.project.application.controller.authorization.AuthenticationController;
-import pt.ipp.isep.dei.esoft.project.domain.Employee;
-import pt.ipp.isep.dei.esoft.project.domain.Organization;
-import pt.ipp.isep.dei.esoft.project.domain.TaskCategory;
-import pt.ipp.isep.dei.esoft.project.repository.AuthenticationRepository;
-import pt.ipp.isep.dei.esoft.project.repository.OrganizationRepository;
-import pt.ipp.isep.dei.esoft.project.repository.Repositories;
-import pt.ipp.isep.dei.esoft.project.repository.TaskCategoryRepository;
+import pt.ipp.isep.dei.esoft.project.domain.*;
+import pt.ipp.isep.dei.esoft.project.repository.*;
+
+import java.util.List;
 
 public class Bootstrap implements Runnable {
 
@@ -16,6 +13,18 @@ public class Bootstrap implements Runnable {
         addTaskCategories();
         addOrganization();
         addUsers();
+    }
+
+    // This method is mainly created to test the us 1
+    private void addProperties() {
+        PropertiesRepository propertiesRepository = new PropertiesRepository();
+        Apartment apartment = new Apartment();
+        House house = new House();
+        Land land = new Land();
+        propertiesRepository.addProperty(apartment);
+        propertiesRepository.addProperty(house);
+        propertiesRepository.addProperty(land);
+
     }
 
     private void addOrganization() {

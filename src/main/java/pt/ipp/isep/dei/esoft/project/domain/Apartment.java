@@ -2,11 +2,16 @@ package pt.ipp.isep.dei.esoft.project.domain;
 
 public class Apartment extends Property {
 
+    private final String propertyTypeApartment = this.getClass().getSimpleName();
     private int numberBedrooms, numberBathrooms, numberParkingSpaces;
     private String availableEquipment;
 
-    public Apartment(String propertyType, String location, double area, double distanceCenter, String photos, Owner owner, int numberBedrooms, int numberBathrooms, int numberParkingSpaces, String availableEquipment) {
-        super(propertyType, location, area, distanceCenter, photos, owner);
+    public Apartment() {
+    }
+
+    public Apartment(String location, double area, double distanceCenter, String photos, Owner owner, int numberBedrooms, int numberBathrooms, int numberParkingSpaces, String availableEquipment) {
+        super(location, area, distanceCenter, photos, owner);
+        setPropertyType();
         this.numberBedrooms = numberBedrooms;
         this.numberBathrooms = numberBathrooms;
         this.numberParkingSpaces = numberParkingSpaces;
@@ -14,7 +19,12 @@ public class Apartment extends Property {
     }
 
     public Apartment clone() {
-        return new Apartment(this.getPropertyType(), this.getLocation(), this.getArea(), this.getDistanceCenter(), this.getPhotos(), this.getOwner(), this.numberBedrooms, this.numberBathrooms, this.numberParkingSpaces, this.availableEquipment);
+        return new Apartment(this.getLocation(), this.getArea(), this.getDistanceCenter(), this.getPhotos(), this.getOwner(), this.numberBedrooms, this.numberBathrooms, this.numberParkingSpaces, this.availableEquipment);
+    }
+
+    @Override
+    public void setPropertyType() {
+        super.setPropertyType(this.propertyTypeApartment);
     }
 
     public int getNumberBedrooms() {
@@ -48,4 +58,6 @@ public class Apartment extends Property {
     public void setAvailableEquipment(String availableEquipment) {
         this.availableEquipment = availableEquipment;
     }
+
+
 }
