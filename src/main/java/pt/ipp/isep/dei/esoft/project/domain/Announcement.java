@@ -5,10 +5,9 @@ import java.util.Date;
 public class Announcement {
     private static int announcementIdCounter = 0;
     private int announcementId;
-
     private Commission agentCommission;
-    Request requestForAnnouncement;
-    Date announcementDate;
+    private Request requestForAnnouncement;
+    private Date announcementDate;
 
     public Announcement(Commission agentCommission, Request requestForAnnouncement) {
         this.agentCommission = agentCommission;
