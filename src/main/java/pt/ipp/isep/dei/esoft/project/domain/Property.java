@@ -12,10 +12,11 @@ public abstract class Property {
     private Owner owner;
 
     public Property() {
-
+        this.propertyType = getClass().getSimpleName();
     }
 
     public Property(String location, double area, double distanceCenter, String photos, Owner owner) {
+        this.propertyType = getClass().getSimpleName();
         this.location = location;
         this.area = area;
         this.distanceCenter = distanceCenter;
@@ -80,9 +81,4 @@ public abstract class Property {
         return propertyType;
     }
 
-    public void setPropertyType(String propertyType) {
-        this.propertyType = propertyType;
-    }
-
-    public abstract void setPropertyType();
 }

@@ -2,13 +2,11 @@ package pt.ipp.isep.dei.esoft.project.domain;
 
 public class House extends Apartment {
 
-    private final String propertyTypeHouse = this.getClass().getSimpleName();
     private boolean existBasement;
     private boolean existInhabitableLoft;
     private String sunExposure;
 
     public House() {
-
     }
 
     public House(String location, double area, double distanceCenter, String photos, Owner owner, int numberBedrooms, int numberBathrooms, int numberParkingSpaces, String availableEquipment, boolean existBasement, boolean existInhabitableLoft, String sunExposure) {
@@ -16,12 +14,8 @@ public class House extends Apartment {
         this.existBasement = existBasement;
         this.existInhabitableLoft = existInhabitableLoft;
         this.sunExposure = sunExposure;
-        setPropertyType();
     }
 
-    public String getPropertyTypeHouse() {
-        return propertyTypeHouse;
-    }
 
     public boolean isExistBasement() {
         return existBasement;
@@ -47,8 +41,4 @@ public class House extends Apartment {
         this.sunExposure = sunExposure;
     }
 
-    @Override
-    public void setPropertyType() {
-        super.setPropertyType(propertyTypeHouse);
-    }
 }

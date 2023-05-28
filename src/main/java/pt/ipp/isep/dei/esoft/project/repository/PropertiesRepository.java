@@ -8,7 +8,7 @@ import java.util.List;
 
 public class PropertiesRepository {
 
-    private List<Property> properties = new ArrayList<>();
+    private final List<Property> properties = new ArrayList<>();
 
     public List<Property> getProperties() {
         return properties;

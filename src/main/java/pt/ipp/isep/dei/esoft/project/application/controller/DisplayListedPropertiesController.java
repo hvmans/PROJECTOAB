@@ -23,7 +23,9 @@ public class DisplayListedPropertiesController {
     }
 
     public List<Property> getPropertiesToDisplay() {
-        return getPropertiesRepository().getProperties();
+        PropertiesRepository propertiesRepository = getPropertiesRepository();
+        List<Property> properties = propertiesRepository.getProperties();
+        return properties;
     }
 
 

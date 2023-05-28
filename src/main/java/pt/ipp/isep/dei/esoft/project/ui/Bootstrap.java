@@ -1,5 +1,6 @@
 package pt.ipp.isep.dei.esoft.project.ui;
 
+import pt.ipp.isep.dei.esoft.project.application.controller.DisplayListedPropertiesController;
 import pt.ipp.isep.dei.esoft.project.application.controller.authorization.AuthenticationController;
 import pt.ipp.isep.dei.esoft.project.domain.*;
 import pt.ipp.isep.dei.esoft.project.repository.*;
@@ -13,17 +14,20 @@ public class Bootstrap implements Runnable {
         addTaskCategories();
         addOrganization();
         addUsers();
+        addProperties();
     }
 
     // This method is mainly created to test the us 1
     private void addProperties() {
-        PropertiesRepository propertiesRepository = new PropertiesRepository();
+        DisplayListedPropertiesController displayListedPropertiesController = new DisplayListedPropertiesController();
+        List<Property> properties = displayListedPropertiesController.getPropertiesToDisplay();
         Apartment apartment = new Apartment();
         House house = new House();
         Land land = new Land();
-        propertiesRepository.addProperty(apartment);
-        propertiesRepository.addProperty(house);
-        propertiesRepository.addProperty(land);
+        properties.add(apartment);
+        properties.add(house);
+        properties.add(land);
+
 
     }
 
