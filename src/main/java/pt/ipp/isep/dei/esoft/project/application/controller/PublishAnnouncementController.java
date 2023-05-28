@@ -2,11 +2,14 @@ package pt.ipp.isep.dei.esoft.project.application.controller;
 
 import pt.ipp.isep.dei.esoft.project.domain.Announcement;
 import pt.ipp.isep.dei.esoft.project.domain.Employee;
+import pt.ipp.isep.dei.esoft.project.domain.Request;
 import pt.ipp.isep.dei.esoft.project.repository.AnnouncementRepository;
 import pt.ipp.isep.dei.esoft.project.repository.AuthenticationRepository;
 import pt.ipp.isep.dei.esoft.project.repository.Repositories;
 import pt.ipp.isep.dei.esoft.project.repository.RequestRepository;
 import pt.isep.lei.esoft.auth.domain.model.Email;
+
+import java.util.List;
 
 public class PublishAnnouncementController {
 
@@ -46,5 +49,10 @@ public class PublishAnnouncementController {
     public void publishAnnouncement(Announcement announcement) {
         AnnouncementRepository announcementRepository = getAnnouncementRepository();
         announcementRepository.addAnnouncement(announcement);
+    }
+
+    public List<Request> getAgentRequests(String agentEmail) {
+        RequestRepository requestRepository = getRequestRepository();
+        return requestRepository.getAgentRequests(agentEmail);
     }
 }
