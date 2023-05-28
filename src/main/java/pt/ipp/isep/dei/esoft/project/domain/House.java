@@ -7,6 +7,7 @@ public class House extends Apartment {
     private String sunExposure;
 
     public House() {
+        super();
     }
 
     public House(String location, double area, double distanceCenter, String photos, Owner owner, int numberBedrooms, int numberBathrooms, int numberParkingSpaces, String availableEquipment, boolean existBasement, boolean existInhabitableLoft, String sunExposure) {
