@@ -1,0 +1,134 @@
+/*
+    package pt.ipp.isep.dei.esoft.project.ui.console.utils;
+
+import pt.ipp.isep.dei.esoft.project.application.controller.PublishSaleController;
+import pt.ipp.isep.dei.esoft.project.domain.Agent;
+import pt.ipp.isep.dei.esoft.project.domain.Commission;
+import pt.ipp.isep.dei.esoft.project.domain.Request;
+import pt.ipp.isep.dei.esoft.project.repository.AuthenticationRepository;
+import pt.ipp.isep.dei.esoft.project.repository.RequestRepository;
+import pt.ipp.isep.dei.esoft.project.ui.console.authorization.AuthenticationUI;
+
+
+    public class PublishSaleUI implements Runnable {
+
+        private final PublishSaleController saleController = new PublishSaleController();
+
+        private int requestId;
+
+        @Override
+        public void run() {
+            displayAgentRequestsByMostRecentDate();
+            requestId = getRequestId();
+            Commission commission = getAgentComission();
+            saleController.publishSale(requestId, commission);
+            if (!saleController.checkRequestId(requestId)) {
+                System.out.println("Your announcement was published with success.");
+            } else {
+                System.out.println("Announcement was not published.");
+            }
+        }
+
+        public Commission getAgentComission() {
+            Commission commission = new Commission();
+            Scanner scn = new Scanner(System.in);
+            int comissionType = 0;
+            System.out.println("Select the type of commission you want: ");
+            do {
+                System.out.println("1 - Fix comission");
+                System.out.println("2 - Percentage comission");
+                comissionType= scn.nextInt();
+            } while (comissionType < 1 || comissionType > 2);
+            if (comissionType == 1) {
+                commission.setCommissionTypeFixed();
+                commission.setCommissionValue(getFixComission());
+            } else {
+                commission.setCommissionTypePercentage();
+                commission.setCommissionValue(getPercentComission());
+            }
+            return commission;
+        }
+
+        public double getFixComission() {
+            Scanner scn = new Scanner(System.in);
+            double comission = 0;
+            boolean passed;
+            System.out.println("Type the value for your comission");
+            do {
+                passed = true;
+                try {
+                    comission = scn.nextDouble();
+                    if (comission <= 0) {
+                        passed = false;
+                        System.out.println("Commission should be positive, type again.");
+                    }
+                } catch (InputMismatchException exception) {
+                    System.out.println("That is not a valid commission, type again.");
+                    passed = false;
+                    scn.next();
+                }
+            } while (!passed);
+            return comission;
+        }
+
+        public double getPercentComission() {
+            Scanner scn = new Scanner(System.in);
+            double comission = 0;
+            boolean passed;
+            System.out.println("Type the value for your comission: ");
+            do {
+                passed = true;
+                try {
+                    comission = scn.nextDouble();
+                    if (comission < 0 || comission > 100) {
+                        System.out.println("Comission should be between 0% and 100%");
+                        passed = false;
+                    }
+                } catch (InputMismatchException exception) {
+                    System.out.println("That is not a valid commission, type again.");
+                    passed = false;
+                    scn.next();
+                }
+            } while (!passed);
+            return comission;
+        }
+
+        public int getRequestId() {
+            Scanner keyboardScanner = new Scanner(System.in);
+            int requestId = 0;
+            boolean passed, isValid;
+            System.out.println("Introduce the request id: ");
+            do {
+                passed = true;
+                isValid = true;
+                try {
+                    requestId = keyboardScanner.nextInt();
+                    if (!saleController.checkRequestId(requestId)) {
+                        System.out.println("That request doesn't exist in the repository, try again.");
+                        passed = false;
+                        isValid = false;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("That input is not valid, try again.");
+                    passed = false;
+                    isValid = false;
+                    keyboardScanner.next();
+                }
+            } while (!isValid && !passed);
+            return requestId;
+        }
+
+        public void displayAgentRequestsByMostRecentDate() {
+            List<Request> agentRequests = saleController.getAgentRequests();
+            Collections.sort(agentRequests, (r1, r2) -> r2.getDate().compareTo(r1.getDate()));
+            System.out.println("Requests available: ");
+            for (Request request: agentRequests) {
+                System.out.println("Date: " + request.getDate() + "   Id: " + request.getRequestId());
+            }
+        }
+
+    }
+
+}
+*
+/

@@ -48,8 +48,12 @@ public class RegisterUserUI implements Runnable {
         } while (!isValidEmail(userEmail));
         return userEmail;
     }
+    /**
+     * Email validiation , email need to have A-Z can or not contain a number a  @ and A-Z  letter can or not contain a number  ,
+     */
 
     public static boolean isValidEmail(String email) {
+
         String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
         return email.matches(emailRegex);
     }

@@ -10,7 +10,9 @@ public class AgentUI implements Runnable {
     @Override
     public void run() {
         List<MenuItem> options = new ArrayList<MenuItem>();
-        options.add(new MenuItem("Publish Announcement", new PublishAnnouncmentUI())); // us 002 function
+        options.add(new MenuItem("Publish An Announcement", new PublishAnnouncmentUI())); // us 002 function amd 009 function combined
+
+
 
 
         int option = 0;
