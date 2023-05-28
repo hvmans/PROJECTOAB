@@ -22,4 +22,5 @@ public class AnnouncementRepository {
     public void addAnnouncement(Announcement announcement) {
         announcements.add(announcement);
     }
+
 }

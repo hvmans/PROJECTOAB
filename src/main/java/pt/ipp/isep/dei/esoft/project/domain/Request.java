@@ -6,7 +6,7 @@ public class Request {
 
     private final String REQUEST_TYPE_SALE = "Sale";
     private final String REQUEST_TYPE_LEASE = "Lease";
-    private static int requestIdCounter = 0;
+    private static int requestIdCounter = 1;
     private int requestId;
     String requestType;
     Property requestedProperty;

@@ -41,9 +41,25 @@ public class PublishAnnouncementController {
         return announcementRepository;
     }
 
+    public Request getRequestById(int requestId) {
+        return getRequestRepository().getRequestById(requestId);
+    }
+
     public String getAgentEmailFromSession() {
         Email email = getAuthenticationRepository().getCurrentUserSession().getUserId();
         return email.getEmail();
+    }
+
+    public Employee getAgentFromSession() {
+        return new Employee(getAgentEmailFromSession());
+    }
+
+    public List<Request> getRequests() {
+        return getRequestRepository().getRequests();
+    }
+
+    public void removeRequestById(int requestId) {
+        getRequestRepository().removeRequestById(requestId);
     }
 
     public void publishAnnouncement(Announcement announcement) {
@@ -54,5 +70,10 @@ public class PublishAnnouncementController {
     public List<Request> getAgentRequests(String agentEmail) {
         RequestRepository requestRepository = getRequestRepository();
         return requestRepository.getAgentRequests(agentEmail);
+    }
+
+    public boolean checkRequestId(int requestId) {
+        RequestRepository requestRepository = getRequestRepository();
+        return requestRepository.checkRequestById(requestId);
     }
 }

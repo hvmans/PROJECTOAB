@@ -23,6 +23,14 @@ public class RequestRepository {
         return requestToGet;
     }
 
+    public void removeRequestById(int requestId) {
+        for (Request request: requests) {
+            if (request.getRequestId() == requestId) {
+                requests.remove(request);
+            }
+        }
+    }
+
     public void addRequest(Request requestToAdd) {
         requests.add(requestToAdd);
     }
@@ -35,5 +43,15 @@ public class RequestRepository {
             }
         }
         return agentRequests;
+    }
+
+    public boolean checkRequestById(int requestId) {
+        boolean idChecked = false;
+        for (Request request: requests) {
+            if (request.getRequestId() == requestId) {
+                idChecked = true;
+            }
+        }
+        return idChecked;
     }
 }
