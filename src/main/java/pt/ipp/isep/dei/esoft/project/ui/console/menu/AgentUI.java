@@ -33,9 +33,9 @@ public class AgentUI implements Runnable {
         PublishAnnouncementController publishAnnouncementController = new PublishAnnouncementController();
         Apartment apartment = new Apartment();
         House house = new House();
-        Request request1 = new Request("Sale", apartment, publishAnnouncementController.getAgentFromSession());
+        Request request1 = new Request(1, "Sale", apartment, publishAnnouncementController.getAgentFromSession());
         publishAnnouncementController.getRequests().add(request1);
-        Request request2 = new Request("Lease", house, publishAnnouncementController.getAgentFromSession());
+        Request request2 = new Request(1, "Lease", house, publishAnnouncementController.getAgentFromSession());
         publishAnnouncementController.getRequests().add(request2);
     }
 }

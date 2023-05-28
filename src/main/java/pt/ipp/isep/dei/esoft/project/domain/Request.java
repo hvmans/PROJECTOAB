@@ -8,17 +8,28 @@ public class Request {
     private final String REQUEST_TYPE_LEASE = "Lease";
     private static int requestIdCounter = 1;
     private int requestId;
+    double price;
     String requestType;
     Property requestedProperty;
     Employee requestAgent;
     Date requestDate;
 
-    public Request(String requestType, Property requestedProperty, Employee requestAgent) {
+    public Request(double price, String requestType, Property requestedProperty, Employee requestAgent) {
+        this.price = price;
         this.requestType = requestType;
         this.requestedProperty = requestedProperty;
         this.requestAgent = requestAgent;
+        this.requestDate = requestDate;
         this.requestId = requestIdCounter++;
         this.requestDate = new Date();
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public Date getRequestDate() {
@@ -55,5 +66,9 @@ public class Request {
 
     public String getRequestAgentEmail() {
         return this.requestAgent.getEmployeeEmail();
+    }
+
+    public Employee getRequestAgent() {
+        return requestAgent;
     }
 }

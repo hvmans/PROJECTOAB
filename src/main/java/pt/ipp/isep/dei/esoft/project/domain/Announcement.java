@@ -5,6 +5,7 @@ import java.util.Date;
 public class Announcement {
     private static int announcementIdCounter = 0;
     private int announcementId;
+    private double order; // must be equal or lower than the announcement price which is in the request
     private Commission agentCommission;
     private Request requestForAnnouncement;
     private Date announcementDate;
@@ -14,6 +15,20 @@ public class Announcement {
         this.requestForAnnouncement = requestForAnnouncement;
         this.announcementId = announcementIdCounter;
         this.announcementDate = new Date();
+        this.order = requestForAnnouncement.getPrice();
+    }
+
+    public double getOrder() {
+        return order;
+    }
+
+    public void setOrder(double order) {
+        this.order = order;
+    }
+
+
+    public void setAgentCommission(Commission agentCommission) {
+        this.agentCommission = agentCommission;
     }
 
     public Commission getAgentCommission() {
