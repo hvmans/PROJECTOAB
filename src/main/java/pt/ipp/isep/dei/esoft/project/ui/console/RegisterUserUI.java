@@ -1,7 +1,9 @@
 package pt.ipp.isep.dei.esoft.project.ui.console;
 
 import pt.ipp.isep.dei.esoft.project.application.controller.RegisterUserController;
+import pt.ipp.isep.dei.esoft.project.domain.Employee;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RegisterUserUI implements Runnable {
@@ -61,6 +63,7 @@ public class RegisterUserUI implements Runnable {
     public String inputPassword() {
         return "pwd";
     }
+
 
 
 

@@ -6,13 +6,12 @@ public class Agency {
 
     private static int agencyIdCounter = 0;
     private int agencyId;
-    private Email agencyEmail;
+    private String agencyEmail;
     private String location;
     private int telephoneNumber;
-
     private Employee manager;
 
-    public Agency(Email agencyEmail, String location, int telephoneNumber, Employee manager) {
+    public Agency(String agencyEmail, String location, int telephoneNumber, Employee manager) {
         this.agencyEmail = agencyEmail;
         this.location = location;
         this.telephoneNumber = telephoneNumber;
@@ -28,11 +27,11 @@ public class Agency {
         return agencyId;
     }
 
-    public Email getAgencyEmail() {
+    public String getAgencyEmail() {
         return agencyEmail;
     }
 
-    public void setAgencyEmail(Email agencyEmail) {
+    public void setAgencyEmail(String agencyEmail) {
         this.agencyEmail = agencyEmail;
     }
 

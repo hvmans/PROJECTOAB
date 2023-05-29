@@ -10,6 +10,7 @@ public class Repositories {
     AnnouncementRepository announcementRepository = new AnnouncementRepository();
     PropertiesRepository propertiesRepository = new PropertiesRepository();
     RequestRepository requestRepository = new RequestRepository();
+    AgencyRepository agencyRepository = new AgencyRepository();
 
 
     private Repositories() {
@@ -43,5 +44,8 @@ public class Repositories {
         return requestRepository;
     }
 
+    public AgencyRepository getAgencyRepository() {
+        return agencyRepository;
+    }
 
 }

@@ -22,6 +22,7 @@ public class Bootstrap implements Runnable {
         authenticationRepository.addUserRole(AuthenticationController.ROLE_SYSTEM_ADMINISTRATOR, "System Administrator");
         authenticationRepository.addUserRole(AuthenticationController.ROLE_CLIENT,"Client");
         authenticationRepository.addUserRole(AuthenticationController.ROLE_AGENT, "Agent");
+        authenticationRepository.addUserRole(AuthenticationController.ROLE_AGENCY_MANAGER, "Agency Manager");
     }
 
     private void addUsers() {
@@ -30,6 +31,8 @@ public class Bootstrap implements Runnable {
         authenticationRepository.addUserWithRole("System Administrator", "sysadmin@this.app", "admin", AuthenticationController.ROLE_SYSTEM_ADMINISTRATOR);
         authenticationRepository.addUserWithRole("Agent", "agent@this.app", "agent", AuthenticationController.ROLE_AGENT);
         authenticationRepository.addUserWithRole("Client","client@this.app","client",AuthenticationController.ROLE_CLIENT);
+        // to test us5
+        authenticationRepository.addUserWithRole("Agency Manager", "agencymanager@this.app", "agencymanager", AuthenticationController.ROLE_AGENCY_MANAGER);
     }
 
 
