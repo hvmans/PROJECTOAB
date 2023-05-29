@@ -12,24 +12,23 @@ public class Bootstrap implements Runnable {
 
     //Add some task categories to the repository as bootstrap
     public void run() {
+        addRoles();
         addUsers();
+    }
+
+    private void addRoles() {
+        AuthenticationRepository authenticationRepository = Repositories.getInstance().getAuthenticationRepository();
+        authenticationRepository.addUserRole(AuthenticationController.ROLE_OWNER, "Owner");
+        authenticationRepository.addUserRole(AuthenticationController.ROLE_SYSTEM_ADMINISTRATOR, "System Administrator");
+        authenticationRepository.addUserRole(AuthenticationController.ROLE_CLIENT,"Client");
+        authenticationRepository.addUserRole(AuthenticationController.ROLE_AGENT, "Agent");
     }
 
     private void addUsers() {
         //TODO: add Authentication users here: should be created for each user in the organization
         AuthenticationRepository authenticationRepository = Repositories.getInstance().getAuthenticationRepository();
-        authenticationRepository.addUserRole(AuthenticationController.ROLE_ADMIN, AuthenticationController.ROLE_ADMIN);
-        authenticationRepository.addUserRole(AuthenticationController.ROLE_EMPLOYEE,
-                AuthenticationController.ROLE_EMPLOYEE);
-        authenticationRepository.addUserRole(AuthenticationController.ROLE_CLIENT,"Client");
-        authenticationRepository.addUserRole(AuthenticationController.ROLE_AGENT, "Agent");
+        authenticationRepository.addUserWithRole("System Administrator", "sysadmin@this.app", "admin", AuthenticationController.ROLE_SYSTEM_ADMINISTRATOR);
         authenticationRepository.addUserWithRole("Agent", "agent@this.app", "agent", AuthenticationController.ROLE_AGENT);
-
-        authenticationRepository.addUserWithRole("Main Administrator", "admin@this.app", "admin",
-                AuthenticationController.ROLE_ADMIN);
-
-        authenticationRepository.addUserWithRole("Employee", "employee@this.app", "employee",
-                AuthenticationController.ROLE_EMPLOYEE);
         authenticationRepository.addUserWithRole("Client","client@this.app","client",AuthenticationController.ROLE_CLIENT);
     }
 

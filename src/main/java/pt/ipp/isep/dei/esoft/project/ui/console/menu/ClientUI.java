@@ -13,8 +13,6 @@ public class ClientUI implements Runnable {
     public void run() {
         List<MenuItem> options = new ArrayList<MenuItem>();
         options.add(new MenuItem("Place an Order", new PlaceOrderUI())); // us 010 function and 011 function combined
-
-
         int option = 0;
         do {
             option = Utils.showAndSelectIndex(options, "\n\nClient Menu:");
